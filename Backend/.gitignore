@@ -1,1 +1,62 @@
-﻿ExamTwo/
+# Archivos y directorios generados por Visual Studio (IDE)
+
+## Archivos de la solución
+*.suo
+*.user
+*.useros
+*.sln.docstates
+
+## Directorios de proyecto y metadatos
+[Oo]bj/
+[Bb]in/
+.vs/ # Carpeta de Visual Studio (Configuración de la solución y usuario)
+.idea/ # Carpeta de JetBrains Rider (si usas Rider)
+
+# Directorios y archivos de compilación de .NET
+publish/
+artifacts/
+temp/
+backup/
+
+## Paquetes NuGet
+[Pp]ackages/
+*.nupkg
+*.snupkg
+
+# Ejecutables y archivos de depuración
+*.dll
+*.exe
+*.pdb
+*.obj
+*.o
+*.lib
+*.ncb
+*.aps
+*.bsc
+
+# Archivos de logs y bases de datos locales
+*.log
+*.sqlite
+*.mdf
+*.ldf
+
+# Archivos de configuración de usuario local (secrets)
+appsettings.*.json.user
+web.config.user
+
+# Archivos de caché del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Directorios de pruebas e informes
+TestResults/
+coverage/
+
+# Archivos generados para Azure Functions (si aplica)
+host.json
+local.settings.json
+
+# Archivos de configuración que deben ignorarse explícitamente si se usa el .gitignore de la raíz
+# **RECUERDA:** Si quieres subir una carpeta paso a paso, tendrás que ignorarla aquí temporalmente.
+# Ejemplo:
+# NombreDeTuCarpeta/
