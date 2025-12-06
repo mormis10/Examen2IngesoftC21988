@@ -1,0 +1,48 @@
+using ExamTwo.Controllers;
+using ExamTwo.Interfaces;
+using ExamTwo.Repositories;
+using ExamTwo.Services;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<Database>();
+
+builder.Services.AddScoped<ICoffeMachineRepository, CoffeeMachineRepository>();
+builder.Services.AddScoped<ICoffeeService, CoffeeService>();
+builder.Services.AddScoped<IMachineMoneyService, MachineMoneyService>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
+
+var MyCorsPolicy = "MyCorsPolicy";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(MyCorsPolicy, policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseCors(MyCorsPolicy);
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
